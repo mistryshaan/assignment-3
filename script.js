@@ -1,3 +1,4 @@
+// Current date
 const dateNumber = document.getElementsByClassName("date-number")[0];
 const dateDay = document.getElementsByClassName("date-day")[0];
 const dateMonthYear = document.getElementsByClassName("date-month-year")[0];
@@ -11,6 +12,7 @@ dateDay.innerHTML = days[date.getDay()];
 
 dateMonthYear.innerHTML = `${months[date.getMonth()]} ${date.getFullYear()}`;
 
+// City list dropdown
 const cities = document.getElementsByClassName("cities")[0];
 const cityList = document.getElementsByClassName("city-list")[0];
 const icon1 = document.getElementById("icon1");
@@ -22,6 +24,7 @@ cities.addEventListener("click", () => {
     }
 });
 
+// Number of days dropdown
 const daysDiv = document.getElementsByClassName("days")[0];
 const daysList = document.getElementsByClassName("days-list")[0];
 daysDiv.addEventListener("click", () => {
@@ -33,8 +36,8 @@ daysDiv.addEventListener("click", () => {
     }
 });
 
+// Populate visiting places using api
 const cardsSection = document.getElementsByClassName("cards")[0];
-
 fetch("https://raw.githubusercontent.com/Dipen-Dedania/static-data/main/make-your-trip-package.json")
     .then(reponse => reponse.json())
     .then(data =>  {
@@ -75,6 +78,7 @@ fetch("https://raw.githubusercontent.com/Dipen-Dedania/static-data/main/make-you
     });
 
 
+// Populate cities using the api
 fetch("https://raw.githubusercontent.com/Dipen-Dedania/static-data/main/india-popular-city.json")
     .then(response => response.json())
     .then(data => {
@@ -84,6 +88,7 @@ fetch("https://raw.githubusercontent.com/Dipen-Dedania/static-data/main/india-po
         });
     });
 
+// Fetch weather details
 async function updateCity(e) {
     document.getElementById("currentCity").innerText = e.innerText;
     if(e.innerText !== "All places") {
@@ -106,6 +111,7 @@ async function updateCity(e) {
     }
 }
 
+// Update days in select days header
 function updateDays(e) {
     document.getElementById("currentDays").innerText = e.innerText;
 }
