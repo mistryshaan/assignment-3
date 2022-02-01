@@ -33,6 +33,7 @@
   margin-bottom: 5px;
 }
 
+/* Header */
 header {
   width: 90%;
   margin: 40px auto;
@@ -42,6 +43,7 @@ header {
   justify-content: space-between;
 }
 
+/* Date */
 #date {
   display: flex;
   align-items: center;
@@ -70,7 +72,9 @@ header {
   color: rgb(179, 179, 179);
   font-weight: 700;
 }
+/* END - Date */
 
+/* Filters */
 #filters {
   width: 60%;
   display: flex;
@@ -174,14 +178,16 @@ header {
 
 .city-list > div:hover,
 .days-list > div:hover {
-  background-color: rgb(231, 230, 230);
+  background-color: rgb(214, 208, 208);
   cursor: pointer;
 }
 
 input[type="date"] {
   outline: none;
 }
+/* END - Filters */
 
+/* Weather details */
 #weather {
   display: flex;
   align-items: center;
@@ -199,9 +205,10 @@ input[type="date"] {
 #currentCityTemp {
   width: 100px;
 }
+/* END - Weather details */
+/* END - Header */
 
 /* Card section */
-
 .cards {
   width: 90%;
   margin: auto;
@@ -273,6 +280,7 @@ input[type="date"] {
   border-radius: 10px;
   padding: 10px 20px;
 }
+/* END - Card section */
 
 @media (max-width: 1650px) {
   .card {

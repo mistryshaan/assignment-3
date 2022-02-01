@@ -1,40 +1,34 @@
 // Current date
-const dateNumber = document.getElementsByClassName("date-number")[0];
-const dateDay = document.getElementsByClassName("date-day")[0];
-const dateMonthYear = document.getElementsByClassName("date-month-year")[0];
-
 const date = new Date();
 const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+const dateNumber = document.getElementsByClassName("date-number")[0];
+const dateDay = document.getElementsByClassName("date-day")[0];
+const dateMonthYear = document.getElementsByClassName("date-month-year")[0];
 
 dateNumber.innerHTML = date.getDate();
 dateDay.innerHTML = days[date.getDay()];
 
 dateMonthYear.innerHTML = `${months[date.getMonth()]} ${date.getFullYear()}`;
+// END - Current date
 
 // City list dropdown
 const cities = document.getElementsByClassName("cities")[0];
 const cityList = document.getElementsByClassName("city-list")[0];
 const icon1 = document.getElementById("icon1");
 cities.addEventListener("click", () => {
-    if(cityList.style.display === "block") {
-        cityList.style.display = "none";
-    } else {
-        cityList.style.display = "block";
-    }
+    cityList.style.display === "block" ? cityList.style.display = "none" : cityList.style.display = "block";
 });
+// END - City list dropdown
 
 // Number of days dropdown
 const daysDiv = document.getElementsByClassName("days")[0];
 const daysList = document.getElementsByClassName("days-list")[0];
 daysDiv.addEventListener("click", () => {
-    if(daysList.style.display === "block") {
-        daysList.style.display = "none";
-        
-    } else {
-        daysList.style.display = "block";
-    }
+    daysList.style.display === "block" ? daysList.style.display = "none" : daysList.style.display = "block";
 });
+// END - Number of days dropdown
 
 // Populate visiting places using api
 const cardsSection = document.getElementsByClassName("cards")[0];
@@ -76,7 +70,7 @@ fetch("https://raw.githubusercontent.com/Dipen-Dedania/static-data/main/make-you
           cardsSection.innerHTML += cardTemplate;
         });
     });
-
+// END - Populate visiting places using api
 
 // Populate cities using the api
 fetch("https://raw.githubusercontent.com/Dipen-Dedania/static-data/main/india-popular-city.json")
@@ -87,6 +81,7 @@ fetch("https://raw.githubusercontent.com/Dipen-Dedania/static-data/main/india-po
             cityList.innerHTML += cityTemplate;
         });
     });
+// END - Populate cities using the api
 
 // Fetch weather details
 async function updateCity(e) {
@@ -110,9 +105,10 @@ async function updateCity(e) {
         document.getElementById("currentCityTemp").innerText = e.innerText;
     }
 }
+// END - Fetch weather details
 
 // Update days in select days header
 function updateDays(e) {
     document.getElementById("currentDays").innerText = e.innerText;
 }
-
+// END - Update days in select days header
