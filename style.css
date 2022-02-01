@@ -204,6 +204,7 @@ input[type="date"] {
 
 #currentCityTemp {
   width: 100px;
+  letter-spacing: 1px;
 }
 /* END - Weather details */
 /* END - Header */
@@ -314,6 +315,7 @@ input[type="date"] {
     width: 80%;
     order: 3;
     flex-grow: 1;
+    margin-bottom: 50px;
   }
 
   .cities {
