@@ -88,6 +88,24 @@ function updateCity(e) {
     document.getElementById("currentCity").innerText = e.innerText;
     if(e.innerText !== "All places") {
         document.getElementById("currentCityTemp").innerText = e.innerText;
+        fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${e.innerText}.json?access_token=pk.eyJ1Ijoic2h1YmhhbWhpcmFuaTQ1IiwiYSI6ImNreTN3OHBiaTA2OXoyd3E5YjJ2b2xicWkifQ.hQfD_1Mmlpta37azNXVyvQ`)
+        .then(response => response.json())
+        .then(data => {
+            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${data.features[0].center[1]}&lon=${data.features[0].center[0]}&exclude=hourly,daily&units=metric&appid=d57f8c3baf6bb12c1c6f23e9e1315929`)
+            .then(response => response.json())
+            .then(data => {
+                let temperature = data.current.temp;
+                if(temperature < 10) {
+                    document.getElementById("temp").innerHTML = `<i class="wi wi-cloudy-windy"></i>${temperature}<sup>o</sup>`;
+                } else if(temperature > 10 && temperature < 20) {
+                    document.getElementById("temp").innerHTML = `<i class="wi wi-cloudy"></i>${temperature}<sup>o</sup>`;
+                } else if(temperature > 20 & temperature < 25) {
+                    document.getElementById("temp").innerHTML = `<i class="wi wi-day-cloudy-gusts"></i>${temperature}<sup>o</sup>`;
+                } else {
+                    document.getElementById("temp").innerHTML = `<i class="wi wi-day-sunny"></i>${temperature}<sup>o</sup>`;
+                }
+            });
+        });
     }
 }
 
@@ -95,6 +113,3 @@ function updateDays(e) {
     document.getElementById("currentDays").innerText = e.innerText;
 }
 
-// fetch("https://www.metaweather.com/api/location/search/?query=ahmedabad", {credentials: "include"})
-// .then(response => response.json())
-// .then(data => console.log(data));
