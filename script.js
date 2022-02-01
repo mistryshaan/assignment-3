@@ -61,7 +61,7 @@ fetch("https://raw.githubusercontent.com/Dipen-Dedania/static-data/main/make-you
     
             <div class="card-footer">
               <div>
-                <div class="light-text">Total Price</div>
+                <div class="light-text">Total Price:</div>
                 <div class="bold-text large-font">${element.price}</div>
               </div>
               <div>
@@ -94,13 +94,13 @@ async function updateCity(e) {
         const cityWeatherData = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,daily&units=metric&appid=d57f8c3baf6bb12c1c6f23e9e1315929`).then(response => response.json());
         const temperature = cityWeatherData.current.temp;
         if(temperature < 10) {
-            document.getElementById("temp").innerHTML = `<i class="wi wi-cloudy-windy"></i>${temperature}<sup>o</sup>`;
+            document.getElementById("temp").innerHTML = `<i class="wi wi-cloudy-windy"></i>${temperature}<sup>o</sup> C`;
         } else if(temperature > 10 && temperature < 20) {
-            document.getElementById("temp").innerHTML = `<i class="wi wi-cloudy"></i>${temperature}<sup>o</sup>`;
+            document.getElementById("temp").innerHTML = `<i class="wi wi-cloudy"></i>${temperature}<sup>o</sup> C`;
         } else if(temperature > 20 & temperature < 25) {
-            document.getElementById("temp").innerHTML = `<i class="wi wi-day-cloudy-gusts"></i>${temperature}<sup>o</sup>`;
+            document.getElementById("temp").innerHTML = `<i class="wi wi-day-cloudy-gusts"></i>${temperature}<sup>o</sup> C`;
         } else {
-            document.getElementById("temp").innerHTML = `<i class="wi wi-day-sunny"></i>${temperature}<sup>o</sup>`;
+            document.getElementById("temp").innerHTML = `<i class="wi wi-day-sunny"></i>${temperature}<sup>o</sup> C`;
         }
         document.getElementById("currentCityTemp").innerText = e.innerText;
     }
