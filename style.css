@@ -547,9 +547,9 @@ input[type="date"] {
 
 @media (max-width: 510px) {
   header {
-    flex-wrap: wrap;
+    flex-direction: column;
     margin: 10px auto;
-    width: 80%;
+    width: 90%;
     padding: 0;
     justify-content: center;
   }
@@ -572,7 +572,7 @@ input[type="date"] {
 
   #filters {
     flex-direction: column;
-    width: 100%;
+    width: 90%;
     order: 3;
     align-items: center;
     justify-content: center;
@@ -636,5 +636,11 @@ input[type="date"] {
 
   .large-font {
     font-size: 1.2rem;
+  }
+
+  #loader {
+    width: 25px;
+    height: 25px;
+    border-width: 2px;
   }
 }
