@@ -11,6 +11,8 @@ dateNumber.innerHTML = date.getDate();
 dateDay.innerHTML = days[date.getDay()];
 
 dateMonthYear.innerHTML = `${months[date.getMonth()]} ${date.getFullYear()}`;
+
+document.getElementById("inputDate").value = date.toISOString().substring(0,10);
 // END - Current date
 
 // City list dropdown
