@@ -582,6 +582,7 @@ input[type="date"] {
 
   .card:nth-child(3n + 0) {
     margin: 0 auto;
+    margin-bottom: 50px;
   }
 
   .card-temp {
