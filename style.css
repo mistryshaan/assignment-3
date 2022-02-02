@@ -231,6 +231,12 @@ input[type="date"] {
   border-radius: 10px;
   box-shadow: 0 0 15px 5px rgb(214, 208, 208);
   margin-bottom: 60px;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-8px);
 }
 
 .card-header {
