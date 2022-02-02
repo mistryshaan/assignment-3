@@ -89,24 +89,35 @@ fetch("https://raw.githubusercontent.com/Dipen-Dedania/static-data/main/india-po
 // Fetch weather details
 async function updateCity(e) {
     if(e.innerText !== "All places") {
+        document.getElementById("loader").style.display = "block";
+        document.getElementById("weather").style.display = "none";
         const cityData = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${e.innerText}.json?access_token=pk.eyJ1Ijoic2h1YmhhbWhpcmFuaTQ1IiwiYSI6ImNreTN3OHBiaTA2OXoyd3E5YjJ2b2xicWkifQ.hQfD_1Mmlpta37azNXVyvQ`).then(response => response.json());
         const longitude = cityData.features[0].center[0];
         const latitude = cityData.features[0].center[1];
 
         const cityWeatherData = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,daily&units=metric&appid=d57f8c3baf6bb12c1c6f23e9e1315929`).then(response => response.json());
         const temperature = cityWeatherData.current.temp;
-        if(temperature < 10) {
+
+        
+        if(cityWeatherData !== null) {
+          document.getElementById("weather").style.display = "flex";
+          document.getElementById("weather").style.animation = "fadeIn 0.5s 1 linear";
+          document.getElementById("loader").style.display = "none";
+
+          if(temperature < 10) {
             document.getElementById("temp").innerHTML = `<i class="fas fa-snowflake"></i>${temperature}<sup>o</sup>`;
-        } else if(temperature > 10 && temperature < 20) {
-            document.getElementById("temp").innerHTML = `<i class="fas fa-wind"></i>${temperature}<sup>o</sup>`;
-        } else if(temperature > 20 & temperature < 25) {
-            document.getElementById("temp").innerHTML = `<i class="fas fa-cloud-sun"></i>${temperature}<sup>o</sup> `;
-        } else {
-            document.getElementById("temp").innerHTML = `<i class="fas fa-sun"></i>${temperature}<sup>o</sup>`;
+          } else if(temperature > 10 && temperature < 20) {
+              document.getElementById("temp").innerHTML = `<i class="fas fa-wind"></i>${temperature}<sup>o</sup>`;
+          } else if(temperature > 20 & temperature < 25) {
+              document.getElementById("temp").innerHTML = `<i class="fas fa-cloud-sun"></i>${temperature}<sup>o</sup> `;
+          } else {
+              document.getElementById("temp").innerHTML = `<i class="fas fa-sun"></i>${temperature}<sup>o</sup>`;
+          }
+          document.getElementById("currentCityTemp").innerText = e.innerText;
+          document.getElementById("currentCity").innerText = e.innerText;
         }
-        document.getElementById("currentCityTemp").innerText = e.innerText;
     }
-    document.getElementById("currentCity").innerText = e.innerText;
+    // document.getElementById("currentCity").innerText = e.innerText;
 }
 // END - Fetch weather details
 
