@@ -19,17 +19,30 @@ document.getElementById("inputDate").value = date.toISOString().substring(0,10);
 const cities = document.getElementsByClassName("cities")[0];
 const cityList = document.getElementsByClassName("city-list")[0];
 const icon1 = document.getElementById("icon1");
-cities.addEventListener("click", () => {
+// cities.addEventListener("click", () => {
+//     cityList.style.display === "block" ? cityList.style.display = "none" : cityList.style.display = "block";
+// });
+
+window.addEventListener("click", (e) => {
+  if(e.target.className === "citySelect" || e.target.parentNode.className === "citySelect") {
     cityList.style.display === "block" ? cityList.style.display = "none" : cityList.style.display = "block";
+    daysList.style.display = "none";
+  } else if(e.target.className === "daysSelect" || e.target.parentNode.className === "daysSelect") {
+    daysList.style.display === "block" ? daysList.style.display = "none" : daysList.style.display = "block";
+    cityList.style.display = "none";
+  } else {
+    cityList.style.display = "none";
+    daysList.style.display = "none";
+  }
 });
 // END - City list dropdown
 
 // Number of days dropdown
 const daysDiv = document.getElementsByClassName("days")[0];
 const daysList = document.getElementsByClassName("days-list")[0];
-daysDiv.addEventListener("click", () => {
-    daysList.style.display === "block" ? daysList.style.display = "none" : daysList.style.display = "block";
-});
+// daysDiv.addEventListener("click", () => {
+//     daysList.style.display === "block" ? daysList.style.display = "none" : daysList.style.display = "block";
+// });
 // END - Number of days dropdown
 
 // Populate visiting places using api
@@ -87,7 +100,6 @@ fetch("https://raw.githubusercontent.com/Dipen-Dedania/static-data/main/india-po
 
 // Fetch weather details
 async function updateCity(e) {
-    document.getElementById("currentCity").innerText = e.innerText;
     if(e.innerText !== "All places") {
         const cityData = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${e.innerText}.json?access_token=pk.eyJ1Ijoic2h1YmhhbWhpcmFuaTQ1IiwiYSI6ImNreTN3OHBiaTA2OXoyd3E5YjJ2b2xicWkifQ.hQfD_1Mmlpta37azNXVyvQ`).then(response => response.json());
         const longitude = cityData.features[0].center[0];
@@ -96,16 +108,17 @@ async function updateCity(e) {
         const cityWeatherData = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,daily&units=metric&appid=d57f8c3baf6bb12c1c6f23e9e1315929`).then(response => response.json());
         const temperature = cityWeatherData.current.temp;
         if(temperature < 10) {
-            document.getElementById("temp").innerHTML = `<i class="wi wi-cloudy-windy"></i>${temperature}<sup>o</sup> C`;
+            document.getElementById("temp").innerHTML = `<i class="far fa-snowflake"></i>${temperature}<sup>o</sup>`;
         } else if(temperature > 10 && temperature < 20) {
-            document.getElementById("temp").innerHTML = `<i class="wi wi-cloudy"></i>${temperature}<sup>o</sup> C`;
+            document.getElementById("temp").innerHTML = `<i class="fas fa-wind"></i>${temperature}<sup>o</sup>`;
         } else if(temperature > 20 & temperature < 25) {
-            document.getElementById("temp").innerHTML = `<i class="wi wi-day-cloudy-gusts"></i>${temperature}<sup>o</sup> C`;
+            document.getElementById("temp").innerHTML = `<i class="fas fa-cloud-sun"></i>${temperature}<sup>o</sup> `;
         } else {
-            document.getElementById("temp").innerHTML = `<i class="wi wi-day-sunny"></i>${temperature}<sup>o</sup> C`;
+            document.getElementById("temp").innerHTML = `<i class="fas fa-sun"></i>${temperature}<sup>o</sup>`;
         }
         document.getElementById("currentCityTemp").innerText = e.innerText;
     }
+    document.getElementById("currentCity").innerText = e.innerText;
 }
 // END - Fetch weather details
 

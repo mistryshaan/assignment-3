@@ -142,6 +142,7 @@ header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  cursor: pointer;
 }
 
 .city-list,
@@ -158,6 +159,7 @@ header {
 .city-list {
   height: 400px;
   overflow-y: scroll;
+  z-index: 10;
 }
 
 .city-list::-webkit-scrollbar {
@@ -169,7 +171,9 @@ header {
 }
 
 .days-list {
-  width: 100px;
+  width: 120px;
+  overflow-y: scroll;
+  z-index: 11;
 }
 
 .city-list > div,
@@ -567,12 +571,12 @@ input[type="date"] {
   }
 
   .city-list {
-    top: 165px;
+    top: 185px;
     width: 200px;
   }
 
   .days-list {
-    top: 230px;
+    top: 255px;
   }
 
   .card {
