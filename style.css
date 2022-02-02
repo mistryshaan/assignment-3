@@ -538,6 +538,7 @@ input[type="date"] {
     align-items: center;
     justify-content: center;
     margin: 20px auto;
+    box-shadow: 0 0 20px 1px rgb(214, 208, 208);
   }
 
   #filters > div {
@@ -578,6 +579,7 @@ input[type="date"] {
     width: 90%;
     margin: 0 auto;
     margin-bottom: 50px;
+    box-shadow: 0 0 20px 1px rgb(214, 208, 208);
   }
 
   .card:nth-child(3n + 0) {
