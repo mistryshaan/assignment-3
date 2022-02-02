@@ -64,7 +64,6 @@ header {
 }
 
 .date-day {
-  margin-bottom: 7px;
   font-weight: bold;
 }
 
@@ -189,6 +188,8 @@ header {
 
 input[type="date"] {
   outline: none;
+  cursor: pointer;
+  border: none;
 }
 /* END - Filters */
 
@@ -567,7 +568,7 @@ input[type="date"] {
   }
 
   .cities {
-    width: 100px;
+    width: 50%;
   }
 
   .city-list {
