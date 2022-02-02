@@ -15,13 +15,9 @@ dateMonthYear.innerHTML = `${months[date.getMonth()]} ${date.getFullYear()}`;
 document.getElementById("inputDate").value = date.toISOString().substring(0,10);
 // END - Current date
 
-// City list dropdown
-const cities = document.getElementsByClassName("cities")[0];
+// Dropdown menu handler
 const cityList = document.getElementsByClassName("city-list")[0];
-const icon1 = document.getElementById("icon1");
-// cities.addEventListener("click", () => {
-//     cityList.style.display === "block" ? cityList.style.display = "none" : cityList.style.display = "block";
-// });
+const daysList = document.getElementsByClassName("days-list")[0];
 
 window.addEventListener("click", (e) => {
   if(e.target.className === "citySelect" || e.target.parentNode.className === "citySelect") {
@@ -35,15 +31,7 @@ window.addEventListener("click", (e) => {
     daysList.style.display = "none";
   }
 });
-// END - City list dropdown
-
-// Number of days dropdown
-const daysDiv = document.getElementsByClassName("days")[0];
-const daysList = document.getElementsByClassName("days-list")[0];
-// daysDiv.addEventListener("click", () => {
-//     daysList.style.display === "block" ? daysList.style.display = "none" : daysList.style.display = "block";
-// });
-// END - Number of days dropdown
+// END - Dropdown menu handler
 
 // Populate visiting places using api
 const cardsSection = document.getElementsByClassName("cards")[0];
