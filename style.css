@@ -340,3 +340,259 @@ input[type="date"] {
     height: 200px;
   }
 }
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  header {
+    flex-wrap: wrap;
+    margin: 10px auto;
+    width: 90%;
+    padding: 0;
+  }
+
+  #filters {
+    order: 3;
+    flex-grow: 1;
+    margin-top: 20px;
+    margin-bottom: 50px;
+  }
+
+  .cities {
+    width: 100px;
+  }
+
+  .city-list {
+    top: 165px;
+    width: 150px;
+  }
+
+  #filters > div:nth-child(5) button {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .card {
+    width: 45%;
+    margin-right: 0;
+  }
+
+  .card-temp {
+    margin-top: 20px;
+  }
+
+  .card-image {
+    height: 150px;
+  }
+}
+
+@media (min-width: 612px) and (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+    margin: 10px auto;
+    width: 90%;
+    padding: 0;
+  }
+
+  #filters {
+    order: 3;
+    flex-grow: 1;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    font-size: 12px;
+  }
+
+  #filters > div:nth-child(5) button {
+    padding: 5px;
+  }
+
+  .cities {
+    width: 100px;
+  }
+
+  .city-list {
+    top: 165px;
+    width: 150px;
+  }
+
+  .card {
+    width: 100%;
+    margin: auto;
+    margin-bottom: 50px;
+  }
+
+  .card-temp {
+    margin-top: 20px;
+  }
+
+  .card-image {
+    height: 200px;
+  }
+}
+
+@media (min-width: 511px) and (max-width: 611px) {
+  header {
+    flex-wrap: wrap;
+    margin: 10px auto;
+    width: 80%;
+    padding: 0;
+  }
+
+  .date-number {
+    font-size: 1.5rem;
+  }
+
+  #filters {
+    flex-direction: column;
+    width: 100%;
+    order: 3;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+  }
+
+  #filters > div {
+    border: none;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid rgb(179, 179, 179);
+  }
+
+  #filters > div:nth-child(4) {
+    width: 100%;
+  }
+
+  #filters > div:nth-child(5) {
+    width: 100%;
+    border: none;
+  }
+
+  #weather > div:first-child {
+    font-size: 1.5rem;
+  }
+
+  .cities {
+    width: 100px;
+  }
+
+  .city-list {
+    top: 165px;
+    width: 200px;
+  }
+
+  .days-list {
+    top: 230px;
+  }
+
+  .card {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+  }
+
+  .card:nth-child(3n + 0) {
+    margin: 0 auto;
+  }
+
+  .card-temp {
+    margin-top: 20px;
+  }
+
+  .card-image {
+    height: 150px;
+  }
+
+  .large-font {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 510px) {
+  header {
+    flex-wrap: wrap;
+    margin: 10px auto;
+    width: 80%;
+    padding: 0;
+    justify-content: center;
+  }
+
+  #date {
+    justify-content: space-around;
+  }
+
+  .date-number {
+    font-size: 1.5rem;
+  }
+
+  #date > div:nth-child(2) {
+    flex-direction: row;
+  }
+
+  .date-day {
+    margin-right: 10px;
+  }
+
+  #filters {
+    flex-direction: column;
+    width: 100%;
+    order: 3;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+  }
+
+  #filters > div {
+    border: none;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid rgb(179, 179, 179);
+  }
+
+  #filters > div:nth-child(4) {
+    width: 100%;
+  }
+
+  #filters > div:nth-child(5) {
+    width: 100%;
+    border: none;
+  }
+
+  #weather > div:first-child {
+    font-size: 1.5rem;
+  }
+
+  .cities {
+    width: 100px;
+  }
+
+  .city-list {
+    top: 165px;
+    width: 200px;
+  }
+
+  .days-list {
+    top: 230px;
+  }
+
+  .card {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+  }
+
+  .card:nth-child(3n + 0) {
+    margin: 0 auto;
+  }
+
+  .card-temp {
+    margin-top: 20px;
+  }
+
+  .card-image {
+    height: 150px;
+  }
+
+  .large-font {
+    font-size: 1.2rem;
+  }
+}
