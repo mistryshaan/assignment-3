@@ -33,16 +33,6 @@
   margin-bottom: 5px;
 }
 
-#loader {
-  display: none;
-  width: 50px;
-  height: 50px;
-  border-top: 5px solid #f67071;
-  border-radius: 50%;
-  animation: loader 1s linear infinite;
-  transition: 0.5s ease-in-out;
-}
-
 @keyframes loader {
   from {
     transform: rotate(0deg);
@@ -232,6 +222,10 @@ input[type="date"] {
   }
 }
 
+header > div:last-child {
+  width: 280px;
+}
+
 #weather > div:first-child {
   font-size: 2rem;
   margin-right: 20px;
@@ -244,6 +238,17 @@ input[type="date"] {
 #currentCityTemp {
   width: 100px;
   letter-spacing: 1px;
+}
+
+#loader {
+  display: none;
+  width: 50px;
+  height: 50px;
+  border-top: 5px solid #f67071;
+  border-radius: 50%;
+  animation: loader 1s linear infinite;
+  transition: 0.5s ease-in-out;
+  margin: auto;
 }
 /* END - Weather details */
 /* END - Header */
